@@ -14,7 +14,13 @@ export default function HomePage() {
 
   useEffect(() => {
     const fetchAllStocks = async () => {
-      setLoading(true)
+
+      const cached = localStorage.getItem('cachedStocks')
+
+      if (cached) {
+        setStocks(JSON.parse(cached))
+      }
+
       try {
         const fetchedData = {}
 
@@ -26,9 +32,17 @@ export default function HomePage() {
           fetchedData[ticker] = data
         }
 
+        // store fresh data
+        localStorage.setItem('cachedStocks', JSON.stringify(fetchedData))
         setStocks(fetchedData)
+
       } catch (err) {
-        setError(err.message)
+        if (Object.keys(cachedData).length > 0) {
+          setStocks(cachedData)
+        } else {
+          setError('No data available.')
+        }
+
       } finally {
         setLoading(false)
       }
@@ -55,7 +69,7 @@ export default function HomePage() {
         ) : (
           <>
             <p className="stock__ticker">{ticker}</p>
-            <p>Loading...</p>
+            <p className="stock__price">Cached data</p>
           </>
         )}
       </Link>
