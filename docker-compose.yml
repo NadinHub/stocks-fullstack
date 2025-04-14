@@ -1,0 +1,22 @@
+# version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./stocks-app
+    image: stocks-app        # Optional, sets image name
+    container_name: stocks-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+
+  backend:
+    build:
+      context: ./stocks-api
+    image: stocks-api
+    container_name: stocks-backend
+    ports:
+      - "8000:8000"

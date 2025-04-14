@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "stocks-api"
+		},
+		{
+			"path": "stocks-app"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,54 @@
+.stockinfo__container {
+    padding: 0 0 0 1rem;
+    color: rgb(73, 73, 73);
+}
+
+.stockinfo__title {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 10px;
+
+    .stockinfo__shortname {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        div {
+            margin-left: 0.5rem;
+            font-size: small;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: gray;
+        }
+
+        .stockinfo__h1 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding-bottom: 3px;
+            font-size: larger;
+        }
+
+    }
+
+    .stockinfo-logo__wrapper {
+        width: 20px;
+
+        img {
+            overflow: hidden;
+            width: 100%;
+        }
+    }
+
+}
+
+.stockinfo__details {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    p {
+        font-family: 'Courier New', Courier, monospace;
+
+        span {
+            color: rgb(142, 142, 150);
+        }
+    }
+}
